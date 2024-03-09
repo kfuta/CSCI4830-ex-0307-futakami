@@ -3,8 +3,6 @@
 public aspect TraceAspectFutakami {
    pointcut classToTrace(): within(ComponentApp) || within(DataApp) || within(ServiceApp);
 
-   pointcut constructorToTrace(): classToTrace() && execution(new(..));
-
    pointcut methodToTrace():  classToTrace() &&  execution(String *App.getName());
 
    before(): methodToTrace() {
